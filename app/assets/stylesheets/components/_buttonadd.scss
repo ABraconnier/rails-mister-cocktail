@@ -1,0 +1,26 @@
+.button-show {
+  font-size: 100px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  transition : 2s;
+  &:hover{
+  font-style: italic;
+  text-decoration: none;
+  color: black;
+  background-color: $blue;
+  }
+}
+
+.button-add{
+  font-size: 100px;
+  text-decoration: none;
+  color: black;
+  transition : 2s;
+  &:hover{
+  font-style: italic;
+  color:black;
+  text-decoration: none;
+}
+}
+

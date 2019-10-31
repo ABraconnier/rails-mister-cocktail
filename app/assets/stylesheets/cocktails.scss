@@ -3,15 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .cocktail-landing {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-grap: 10%;
   height: 100vh;
   padding: 0;
   border: 1px solid black;
 }
 
 .cocktail-list {
-  width: 45%;
   border: 1px solid black;
 }
 

@@ -1,14 +1,16 @@
 <div class="cocktail-landing">
   <div class="cocktail-list">
-    <p><%= link_to 'add a cocktail', new_cocktail_path %></p>
+    <p><%= link_to 'add a cocktail', new_cocktail_path, class: "button-add" %></p>
     <% @cocktails.each do  |cocktail|%>
-      <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+      <p><%= link_to cocktail.name, cocktail_path(cocktail), class: "button-show" %></p>
     <% end %>
   </div>
   <div class="banner">
-    <div class="banner-img"></div>
-      <div class="banner-title">
-        <h1>My fancy cocktails.</h1>
-    </div>
+    <div class="stickyness">
+      <div class="banner-img"></div>
+        <div class="banner-title">
+          <h1>My fancy cocktails.</h1>
+        </div>
+      </div>
   </div>
 </div>
