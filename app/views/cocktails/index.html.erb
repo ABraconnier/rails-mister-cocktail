@@ -1,5 +1,14 @@
-<h1>This is the INDEX.</h1>
-<p><%= link_to 'add a cocktail', new_cocktail_path %></p>
-<% @cocktails.each do  |cocktail|%>
-  <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-<% end %>
+<div class="cocktail-landing">
+  <div class="cocktail-list">
+    <p><%= link_to 'add a cocktail', new_cocktail_path %></p>
+    <% @cocktails.each do  |cocktail|%>
+      <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+    <% end %>
+  </div>
+  <div class="banner">
+    <div class="banner-img"></div>
+      <div class="banner-title">
+        <h1>My fancy cocktails.</h1>
+    </div>
+  </div>
+</div>

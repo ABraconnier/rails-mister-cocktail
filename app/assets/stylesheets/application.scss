@@ -11,3 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "cocktails";
+
+body {
+  background-color: $rose
+};
