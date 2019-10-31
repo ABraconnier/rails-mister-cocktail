@@ -13,3 +13,69 @@
 .cocktail-list {
 }
 
+.show-cocktail {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-grap: 10%;
+  height: 100vh;
+  padding: 0;
+  border: 1px solid black;
+}
+
+.img {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  filter: grayscale(1);
+  opacity: 0.4;
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1534003579377-e30914c1d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%
+}
+
+.title {
+  position: absolute;
+  width: 50vh;
+  h1 {
+      font-size: 100px;
+      text-align: right;
+      font-color: black;
+    }
+    top: 10px;
+    left: 150px;
+}
+
+
+.content {
+  padding: 100px;
+  text-align: center;
+  h2 {
+    font-size: 70px;
+    background-color: $blue;
+    font-style: italic;
+    text-align: right;
+    display: inline;
+  }
+}
+
+li {
+  list-style-type: none;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+}
+
+.ingredient {
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+.dose {
+  color: rgba(0,0,0,0.4);
+  font-size: 20px;
+}
+
+
+

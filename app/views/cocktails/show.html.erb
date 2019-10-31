@@ -1,9 +1,24 @@
-<h1><%= @cocktail.name %></h1>
-<% @cocktail.doses.each do |dose| %>
-<p> <%= dose.description  %> </p>
-<p> <%= dose.ingredient.name %> </p>
-<p> <%= link_to "Delete ingredient", delete_dose_path(dose), method: :delete %></p>
-<% end  %>
-
-<%= link_to 'Back to the list', cocktails_path %>
-<%= link_to 'Add Ingr-dose', new_cocktail_dose_path(@cocktail) %>
+<div class="show-cocktail">
+  <div class="img-title">
+    <div class="img"></div>
+    <div class="title">
+      <h1><%= @cocktail.name %></h1>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content-body">
+    <h2>Ingredients</h2>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+        <li> <span class="ingredient"> <%= dose.ingredient.name %></span> <span class="dose"> <%= dose.description  %> </span> <span><%= link_to "", delete_dose_path(dose), class: "fas fa-eraser", method: :delete %></span></li>
+      <% end  %>
+      <li> <span class="ingredient"> lime </span><span class="dose"> two spoons </span></li>
+       <p> </p>
+      </ul>
+    </div>
+    <div class="footer">
+      <p> <%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail), class: "buttonback"%> </p>
+      <p> <%= link_to 'Back to the list', cocktails_path, class: "buttonback" %> </p>
+  </div>
+  </div>
+</div>
