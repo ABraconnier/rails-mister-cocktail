@@ -10,7 +10,7 @@ require 'json'
 require 'open-uri'
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-
+puts "seeding ingredients..."
 json_file = JSON.parse(open(url).read)
 
 ingredients = json_file['drinks'].map do |ingredient|
@@ -20,3 +20,15 @@ end
 ingredients.each do |ingredient|
   Ingredient.create!(name: ingredient)
 end
+puts "ingredients added"
+
+url_cocktails = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+
+puts "finding some good cocktails..."
+20.times do
+  cocktail_json_file = JSON.parse(open(url_cocktails).read)
+  cocktail = cocktail_json_file['drinks'][0]['strDrink']
+  Cocktail.create!(name: cocktail)
+end
+
+puts "cocktails added"
