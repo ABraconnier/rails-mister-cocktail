@@ -1,5 +1,7 @@
-<h1>Please enter a cocktail</h1>
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+<div class="form-container">
+  <h1>Please register your cocktail</h1>
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit, class: "button-add" %>
+  <% end %>
+</div>
