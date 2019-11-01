@@ -27,8 +27,23 @@ url_cocktails = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 puts "finding some good cocktails..."
 20.times do
   cocktail_json_file = JSON.parse(open(url_cocktails).read)
-  cocktail = cocktail_json_file['drinks'][0]['strDrink']
-  Cocktail.new(name: cocktail).save
+  cocktail_name = cocktail_json_file['drinks'][0]['strDrink']
+  cocktail_photo = cocktail_json_file['drinks'][0]['strDrinkThumb']
+  cocktail = Cocktail.new(name: cocktail_name)
+  cocktail.remote_photo_url = cocktail_photo
+  dose = Dose.new
+  dose.cocktail = dose
+  i = 1
+  ingredients = []
+  5.times do
+    ingredient = Ingredient.find_by(name: cocktail_json_file['drinks'][0]["strIngredient#{1}"])
+    dose.ingredient = ingredient
+    ingredients << ingredient
+    i += 1
+  end
+  cocktail.ingredients = ingredients
+  cocktail.save
+  dose.save
 end
 
 puts "cocktails added"

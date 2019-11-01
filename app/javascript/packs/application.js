@@ -17,3 +17,23 @@
 import 'bootstrap';
 console.log('Hello World from Webpacker')
 
+const cocktails = document.querySelectorAll('.button-show');
+const banner = document.querySelector('.banner-img')
+
+cocktails.forEach((cocktail) => {
+  cocktail.addEventListener("mouseover", (event) => {
+      banner.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1534003579377-e30914c1d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')";
+      banner.style.boxShadow = "0 0 15px rgba(0,0,0,0.2)";
+  }
+  )
+});
+
+cocktails.forEach((cocktail) => {
+  cocktail.addEventListener("mouseout", (event) => {
+      banner.style.backgroundImage = "none";
+      banner.style.boxShadow = "none";
+
+  }
+  )
+});
+
