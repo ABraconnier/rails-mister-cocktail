@@ -33,21 +33,22 @@ end
 
 puts "cocktails added"
 
-puts "linking it all..."
+# puts "linking it all..."
 
-Cocktail.all.each do |cocktail|
-  url_cocktail = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{cocktail.name}"
-  specific_cocktail = JSON.parse(open(url_cocktail).read)
-  ingredients = []
-  i = 1
-  dose = "add two spoons"
-  15.times do
-    ingredients << specific_cocktail[0]["strIngredient#{i}"]
-    real_dose = Dose.new(description: dose)
-    real_dose.ingredient = specific_cocktail[0]["strIngredient#{i}"]
-    real_dose.cocktail = cocktail
-    real_dose.save
-    i += 1
-  end
-  cocktail.ingredients = ingredients
-end
+# Cocktail.all.each do |cocktail|
+#   url_cocktail = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{cocktail.name}"
+#   specific_cocktail = JSON.parse(open(url_cocktail).read)
+#   ingredients = []
+#   i = 1
+#   dose = "add two spoons"
+#   puts
+#   15.times do
+#     ingredients << specific_cocktail[0]["strIngredient#{i}"]
+#     real_dose = Dose.new(description: dose)
+#     real_dose.ingredient = specific_cocktail[0]["strIngredient#{i}"]
+#     real_dose.cocktail = cocktail
+#     real_dose.save
+#     i += 1
+#   end
+#   cocktail.ingredients = ingredients
+# end
