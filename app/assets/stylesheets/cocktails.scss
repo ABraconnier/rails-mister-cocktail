@@ -19,14 +19,13 @@
   grid-grap: 10%;
   height: 100vh;
   padding: 0;
-  border: 1px solid black;
 }
 
 .img {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   filter: grayscale(1);
   opacity: 0.4;
-  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1534003579377-e30914c1d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), asset-url('banner.jpg');
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -49,6 +48,10 @@
 .content {
   padding: 100px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   h2 {
     font-size: 70px;
     background-color: $blue;
@@ -77,5 +80,9 @@ ul {
   font-size: 20px;
 }
 
-
+.footer {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 10px 50px;
+  width: 300px;
+}
 

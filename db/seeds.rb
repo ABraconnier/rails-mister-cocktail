@@ -28,7 +28,26 @@ puts "finding some good cocktails..."
 20.times do
   cocktail_json_file = JSON.parse(open(url_cocktails).read)
   cocktail = cocktail_json_file['drinks'][0]['strDrink']
-  Cocktail.create!(name: cocktail)
+  Cocktail.new(name: cocktail).save
 end
 
 puts "cocktails added"
+
+puts "linking it all..."
+
+Cocktail.all.each do |cocktail|
+  url_cocktail = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{cocktail.name}"
+  specific_cocktail = JSON.parse(open(url_cocktail).read)
+  ingredients = []
+  i = 1
+  dose = "add two spoons"
+  15.times do
+    ingredients << specific_cocktail[0]["strIngredient#{i}"]
+    real_dose = Dose.new(description: dose)
+    real_dose.ingredient = specific_cocktail[0]["strIngredient#{i}"]
+    real_dose.cocktail = cocktail
+    real_dose.save
+    i += 1
+  end
+  cocktail.ingredients = ingredients
+end

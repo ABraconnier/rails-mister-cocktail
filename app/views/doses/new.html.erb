@@ -1,8 +1,0 @@
-<div class="form-container">
-<h1>Enter an ingredient</h1>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.input :ingredient_id, collection: @ingredients %>
-  <%= f.button :submit, class: "button-add" %>
-<% end %>
-</div>

@@ -17,7 +17,13 @@
       </ul>
     </div>
     <div class="footer">
-      <p> <%= link_to 'Add Ingredient', new_cocktail_dose_path(@cocktail), class: "buttonback"%> </p>
+      <div class="ingredient-form">
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <%= f.input :ingredient_id, collection: Ingredient.all %>
+          <%= f.input :description %>
+          <%= f.button :submit, class: "button-add" %>
+        <% end %>
+      </div>
       <p> <%= link_to 'Back to the list', cocktails_path, class: "buttonback" %> </p>
   </div>
   </div>
