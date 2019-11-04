@@ -31,39 +31,25 @@ puts "finding some good cocktails..."
   cocktail_photo = cocktail_json_file['drinks'][0]['strDrinkThumb']
   cocktail = Cocktail.new(name: cocktail_name)
   cocktail.remote_photo_url = cocktail_photo
-  dose = Dose.new
-  dose.cocktail = dose
   i = 1
   ingredients = []
-  5.times do
-    ingredient = Ingredient.find_by(name: cocktail_json_file['drinks'][0]["strIngredient#{1}"])
-    dose.ingredient = ingredient
-    ingredients << ingredient
-    i += 1
+  cocktail.save
+  3.times do
+    dose = Dose.new(description: cocktail_json_file['drinks'][0]["strMeasure#{i}"])
+    dose.cocktail = cocktail
+    ingredient = Ingredient.find_by(name: cocktail_json_file['drinks'][0]["strIngredient#{i}"])
+    if ingredient != nil
+      puts ingredient
+      dose.ingredient = ingredient
+      ingredients << ingredient
+      pp dose
+      dose.save
+    end
+  i += 1
   end
   cocktail.ingredients = ingredients
   cocktail.save
-  dose.save
+  puts "cocktail saved"
 end
 
 puts "cocktails added"
-
-# puts "linking it all..."
-
-# Cocktail.all.each do |cocktail|
-#   url_cocktail = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{cocktail.name}"
-#   specific_cocktail = JSON.parse(open(url_cocktail).read)
-#   ingredients = []
-#   i = 1
-#   dose = "add two spoons"
-#   puts
-#   15.times do
-#     ingredients << specific_cocktail[0]["strIngredient#{i}"]
-#     real_dose = Dose.new(description: dose)
-#     real_dose.ingredient = specific_cocktail[0]["strIngredient#{i}"]
-#     real_dose.cocktail = cocktail
-#     real_dose.save
-#     i += 1
-#   end
-#   cocktail.ingredients = ingredients
-# end
