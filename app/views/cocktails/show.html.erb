@@ -12,8 +12,6 @@
         <% @cocktail.doses.each do |dose| %>
         <li> <span class="ingredient"> <%= dose.ingredient.name %></span> <span class="dose"> <%= dose.description  %> </span> <span><%= link_to "", delete_dose_path(dose), class: "fas fa-eraser", method: :delete %></span></li>
       <% end  %>
-      <li> <span class="ingredient"> lime </span><span class="dose"> two spoons </span></li>
-       <p> </p>
       </ul>
     </div>
     <div class="footer">

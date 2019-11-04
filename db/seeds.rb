@@ -34,18 +34,20 @@ puts "finding some good cocktails..."
   i = 1
   ingredients = []
   cocktail.save
-  3.times do
+  5.times do
     dose = Dose.new(description: cocktail_json_file['drinks'][0]["strMeasure#{i}"])
-    dose.cocktail = cocktail
-    ingredient = Ingredient.find_by(name: cocktail_json_file['drinks'][0]["strIngredient#{i}"])
-    if ingredient != nil
-      puts ingredient
-      dose.ingredient = ingredient
-      ingredients << ingredient
-      pp dose
-      dose.save
+    if cocktail_json_file['drinks'][0]["strMeasure#{i}"] != nil
+      dose.cocktail = cocktail
+      ingredient = Ingredient.find_by(name: cocktail_json_file['drinks'][0]["strIngredient#{i}"])
+      if ingredient != nil
+        puts ingredient
+        dose.ingredient = ingredient
+        ingredients << ingredient
+        pp dose
+        dose.save
+      end
     end
-  i += 1
+    i += 1
   end
   cocktail.ingredients = ingredients
   cocktail.save
